@@ -1,3 +1,6 @@
 # svoe_selo_scraping
 
-## docker-compose up / docker-compose start
+### To start the services use
+- `docker-compose up` \
+or
+- `docker-compose start`
