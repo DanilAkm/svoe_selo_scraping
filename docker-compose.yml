@@ -1,0 +1,40 @@
+version: '3.9'
+
+networks:
+  promehteus_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/24
+          gateway: 172.20.0.1
+
+services:
+  prometheus:
+    image: bitnami/prometheus:latest
+    volumes:
+      - ./configs/prometheus.yml:/etc/prometheus/prometheus.yml
+    container_name: prometheus
+    networks:
+      promehteus_network:
+        ipv4_address: 172.20.0.3
+    ports:
+      - "9090:9090"
+
+  blackbox:
+    image: quay.io/prometheus/blackbox-exporter:latest
+    # volumes:
+    #   - ./configs/blackbox-exporter.yml:/etc/blackbox_exporter/config.yml
+    container_name: blackbox-exporter
+    networks:
+      promehteus_network:
+        ipv4_address: 172.20.0.2
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    networks:
+      promehteus_network:
+        ipv4_address: 172.20.0.4
+    ports:
+      - "3000:3000"
