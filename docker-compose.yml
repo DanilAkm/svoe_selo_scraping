@@ -12,7 +12,8 @@ services:
     volumes:
       - ./configs/prometheus.yml:/etc/prometheus/prometheus.yml
     container_name: prometheus
-    networks: prometheus_network
+    networks:
+      - prometheus_network
     ports:
       - "9090:9090"
 
@@ -21,11 +22,13 @@ services:
     # volumes:
     #   - ./configs/blackbox-exporter.yml:/etc/blackbox_exporter/config.yml
     container_name: blackbox-exporter
-    networks: prometheus_network
+    networks:
+      - prometheus_network
 
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
-    networks: prometheus_network
+    networks:
+      - prometheus_network
     ports:
       - "3000:3000"
