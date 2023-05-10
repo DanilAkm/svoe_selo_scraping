@@ -3,11 +3,11 @@
 ### To start the services
 
 ```
-git clone https://github.com/DanilAkm/svoe_selo_scraping.git
+$ git clone https://github.com/DanilAkm/svoe_selo_scraping.git
 
-cd svoe_selo_scraping
+$ cd svoe_selo_scraping
 
-docker-compose up
+$ docker-compose up
 ```
 
 Enter <http://localhost:3000> to access Grafana
