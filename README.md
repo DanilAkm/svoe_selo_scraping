@@ -32,6 +32,8 @@ Prometheus service should be available on <http://prometheus:9090>
 
 ---
 
+<h2>PROMETHEUS IS ALREADY CONFIGURED</h2>
+
 You then need to create or import a dashboard
 
 ![](./img/new_dash.PNG)
