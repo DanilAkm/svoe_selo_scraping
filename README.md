@@ -20,7 +20,7 @@ Enter <http://localhost:3000> to access Grafana
 
 - Default login & passwd: <b>admin</b>
 
-Add prometheus as a data source in the Administration panel
+<!-- Add prometheus as a data source in the Administration panel
 
 ![](./img/admin_panel.PNG)
 
@@ -30,7 +30,7 @@ Prometheus service should be available on <http://prometheus:9090>
 
 ![](./img/data_source.PNG)
 
----
+--- -->
 
 <h2>PROMETHEUS IS ALREADY CONFIGURED</h2>
 
