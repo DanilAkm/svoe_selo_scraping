@@ -7,7 +7,7 @@ $ git clone https://github.com/DanilAkm/svoe_selo_scraping.git
 
 $ cd svoe_selo_scraping
 
-$ docker-compose up
+$ docker-compose up -d
 ```
 
 ---
