@@ -52,4 +52,8 @@ And here we have it
 
 <h1>Under Construction</h1>
 
+Add you ngrok token to .env file in /
+
+`NGROK_AUTHTOKEN=YOUR_NGROK_TOKEN`
+
 To see your ngrok public url go to http://localhost:4040 and there you'll have it 
