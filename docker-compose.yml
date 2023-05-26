@@ -34,16 +34,14 @@ services:
       - prometheus_network
     ports:
       - "3000:3000"
-    entrypoint:
-      - bash
-    tty: true
-    stdin_open: true
-  # ngrok:
-  #   image: ngrok/ngrok
-  #   container_name: ngrok
-  #   networks:
-  #     - prometheus_network
-  #   entrypoint:
-  #     - bash
-  #   tty: true
-  #   stdin_open: true
+
+  ngrok:
+    image: ngrok/ngrok
+    container_name: ngrok
+    networks:
+      - prometheus_network
+    environment:
+      - NGROK_AUTHTOKEN=$NGROK_AUTHTOKEN
+    command: http grafana:3000
+    ports:
+      - "4040:4040"
