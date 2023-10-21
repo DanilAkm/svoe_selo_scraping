@@ -1,19 +1,11 @@
 version: '3.9'
 
-networks:
-  prometheus_network:
-    driver: bridge
-    ipam:
-      driver: default
-
 services:
   prometheus:
     image: bitnami/prometheus:latest
     volumes:
       - ./configs/prometheus.yml:/etc/prometheus/prometheus.yml
     container_name: prometheus
-    networks:
-      - prometheus_network
     ports:
       - "9090:9090"
 
@@ -22,24 +14,18 @@ services:
     # volumes:
     #   - ./configs/blackbox-exporter.yml:/etc/blackbox_exporter/config.yml
     container_name: blackbox-exporter
-    networks:
-      - prometheus_network
 
   grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana:6.7.4
     container_name: grafana
     volumes:
       - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
-    networks:
-      - prometheus_network
     ports:
       - "3000:3000"
 
   ngrok:
     image: ngrok/ngrok
     container_name: ngrok
-    networks:
-      - prometheus_network
     environment:
       - NGROK_AUTHTOKEN=$NGROK_AUTHTOKEN
     command: http grafana:3000
